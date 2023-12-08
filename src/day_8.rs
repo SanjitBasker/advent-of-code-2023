@@ -80,10 +80,13 @@ mod tests {
     #[test]
     fn test_part1() {
         assert!(part1(include_str!("../inputs/day-08/input_1.txt")) == 6);
+        assert!(part1(include_str!("../inputs/day-08/input_2.txt")) == 15989);
+        assert!(part1(include_str!("../inputs/day-08/input_4.txt")) == 2);
     }
 
     #[test]
     fn test_part2() {
         assert!(part2(include_str!("../inputs/day-08/input_3.txt")) == 6);
+        assert!(part2(include_str!("../inputs/day-08/input_2.txt")) == 13830919117339);
     }
 }

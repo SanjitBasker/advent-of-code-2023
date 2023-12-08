@@ -12,9 +12,7 @@ fn part1(input: &str) -> String {
                 .filter(|c| (&'0'..=&'9').contains(&c))
                 .map(|c| c.to_digit(10).unwrap())
                 .collect::<Vec<_>>();
-            let d1 = nums.first();
-            let d2 = nums.last();
-            d1.unwrap_or(&0) * 10 + d2.unwrap_or(&0)
+            nums.first().unwrap() * 10 + nums.last().unwrap()
         })
         .sum::<u32>()
         .to_string()
@@ -62,9 +60,7 @@ fn part2(input: &str) -> String {
                 .filter(|c| (&'0'..=&'9').contains(&c))
                 .map(|c| c.to_digit(10).unwrap())
                 .collect::<Vec<_>>();
-            let d1 = nums.first();
-            let d2 = nums.last();
-            d1.unwrap_or(&0) * 10 + d2.unwrap_or(&0)
+            nums.first().unwrap() * 10 + nums.last().unwrap()
         })
         .sum::<u32>()
         .to_string()
@@ -76,11 +72,13 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        assert!(part1(include_str!("../inputs/day-01/input_1.txt")) == "142")
+        assert!(part1(include_str!("../inputs/day-01/input_1.txt")) == "142");
+        assert!(part1(include_str!("../inputs/day-01/input_2.txt")) == "55477")
     }
 
     #[test]
     fn test_part2() {
-        assert!(part2(include_str!("../inputs/day-01/input_3.txt")) == "281")
+        assert!(part2(include_str!("../inputs/day-01/input_3.txt")) == "281");
+        assert!(part2(include_str!("../inputs/day-01/input_2.txt")) == "54431");
     }
 }

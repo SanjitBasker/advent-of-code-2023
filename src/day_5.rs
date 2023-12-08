@@ -149,10 +149,12 @@ mod tests {
     #[test]
     fn test_part1() {
         assert!(part1(include_str!("../inputs/day-05/input_1.txt")) == 35);
+        assert!(part1(include_str!("../inputs/day-05/input_2.txt")) == 382895070);
     }
 
     #[test]
     fn test_part2() {
         assert!(part2(include_str!("../inputs/day-05/input_1.txt")) == 46);
+        assert!(part2(include_str!("../inputs/day-05/input_2.txt")) == 17729182);
     }
 }

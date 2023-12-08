@@ -66,10 +66,12 @@ mod tests {
     #[test]
     fn test_part1() {
         assert!(part1(include_str!("../inputs/day-04/input_1.txt")) == 13);
+        assert!(part1(include_str!("../inputs/day-04/input_2.txt")) == 21485);
     }
 
     #[test]
     fn test_part2() {
         assert!(part2(include_str!("../inputs/day-04/input_1.txt")) == 30);
+        assert!(part2(include_str!("../inputs/day-04/input_2.txt")) == 11024379);
     }
 }

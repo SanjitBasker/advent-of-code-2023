@@ -1,4 +1,5 @@
 use std::cmp;
+use std::convert;
 
 fn main() {
     println!(
@@ -36,16 +37,16 @@ fn part1(input: &str, r: u32, g: u32, b: u32) -> u32 {
                                 b
                             })
                     })
-                    .all(|x| x)
+                    .all(convert::identity)
             })
-            .all(|x| x);
+            .all(convert::identity);
         if each_satisfies {
             id.parse::<u32>().unwrap()
         } else {
             0
         }
     });
-    nums.reduce(|a, b| a + b).unwrap()
+    nums.sum()
 }
 
 fn part2(input: &str) -> u32 {
@@ -87,7 +88,7 @@ fn part2(input: &str) -> u32 {
                 })
         })
         .map(|triple| triple.0 * triple.1 * triple.2)
-        .sum::<u32>()
+        .sum()
 }
 
 #[cfg(test)]
@@ -97,10 +98,12 @@ mod tests {
     #[test]
     fn test_part1() {
         assert!(part1(include_str!("../inputs/day-02/input_1.txt"), 12, 13, 14) == 8);
+        assert!(part1(include_str!("../inputs/day-02/input_2.txt"), 12, 13, 14) == 2278);
     }
 
     #[test]
     fn test_part2() {
-        assert!(part2(include_str!("../inputs/day-02/input_1.txt")) == 2286)
+        assert!(part2(include_str!("../inputs/day-02/input_1.txt")) == 2286);
+        assert!(part2(include_str!("../inputs/day-02/input_2.txt")) == 67953);
     }
 }

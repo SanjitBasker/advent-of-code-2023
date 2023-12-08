@@ -89,10 +89,13 @@ fn part2(input: &str) -> usize {
             let bid = &x[x.find(' ').unwrap() + 1..];
             let mut counts: HashMap<char, u64> = HashMap::new();
             for c in hand.chars() {
-                if !counts.contains_key(&c) {
-                    counts.insert(c, 1);
-                } else {
-                    counts.insert(c, counts.get(&c).unwrap() + 1);
+                match counts.entry(c) {
+                    std::collections::hash_map::Entry::Vacant(e) => {
+                        e.insert(1);
+                    }
+                    std::collections::hash_map::Entry::Occupied(mut e) => {
+                        e.insert(e.get() + 1);
+                    }
                 }
             }
             let &jacks = counts.get(&'J').unwrap_or(&0);
@@ -191,10 +194,12 @@ mod tests {
     #[test]
     fn test_part1() {
         assert!(part1(include_str!("../inputs/day-07/input_1.txt")) == 6440);
+        assert!(part1(include_str!("../inputs/day-07/input_2.txt")) == 251106089);
     }
 
     #[test]
     fn test_part2() {
         assert!(part2(include_str!("../inputs/day-07/input_1.txt")) == 5905);
+        assert!(part2(include_str!("../inputs/day-07/input_2.txt")) == 249620106);
     }
 }
